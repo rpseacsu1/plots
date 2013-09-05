@@ -29,7 +29,6 @@ canvas{
 <p>I am sorry, however your browser doesn't support canvas. Please, try another one, like : Firefox, Chrome or Opera</p>
 </canvas>
 </body>
-<script src="plotsJs.min.js">
 <script>
 
 var data = []
@@ -37,6 +36,60 @@ for(var k=0; k<10; k++) // randomly filled data array
   data.push(Math.random())
 
 plot(data,'canvasId') //actual plot
+
+function plot(data,canvasId,options) { // library
+
+  if(!options) { // use default
+    options = {
+      gridColor: '#cac5c3',
+      drawColor: '#a25593',
+      lines: 5,
+      columns: 14,
+      margin: 6,
+      lineWidth: 1,    
+    }
+  }
+  
+  var canvas = document.getElementById(canvasId)
+  var ctx = canvas.getContext('2d')
+  var width = canvas.width
+  var height = canvas.height
+  ctx.clearRect(0, 0, width, height)
+  
+  // styles to draw
+  var margin = options.margin
+  ctx.lineWidth = options.lineWidth
+  ctx.strokeStyle = options.gridColor
+  
+  //grid
+  ctx.beginPath()
+  for(p = 1;p < options.lines; p++) {
+    ctx.moveTo(margin, p*(height/options.lines))
+    ctx.lineTo(width-margin, p*(height/options.lines)) 
+  }
+  for(q = 1;q < options.columns; q++) {
+    ctx.moveTo(q*(width/options.columns), margin)
+    ctx.lineTo(q*(width/options.columns), height-margin) 
+  }
+  ctx.stroke()
+  
+  //overrides Array to get max and min methods
+  Array.prototype.max = function() { return Math.max.apply(null, this) }
+  Array.prototype.min = function() { return Math.min.apply(null, this) }
+  
+  var scale = {
+    x: (width-2*options.margin)/data.length,
+    y: (height-4*options.margin)/(data.max()-data.min()) }
+  
+  //draw
+  ctx.strokeStyle = options.drawColor
+  ctx.beginPath()
+  ctx.moveTo(margin, data[0])
+  for(var e= 1; e< data.length; e++){
+    ctx.lineTo(scale.x*e+margin, data[e]*scale.y)
+  }
+  ctx.stroke()
+}
 
 </script>
 </html>
