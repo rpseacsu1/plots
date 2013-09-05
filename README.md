@@ -21,8 +21,8 @@ Cons :
   	- Zoom
 
 Examples
-	1) Plots 10 random generated numbers
-	2) 
+	- 1 - Plots 10 random generated numbers
+	- 2 - 
 
 Author
 	- I ask to place my name and a link to this repo within the first lines of your code. 
