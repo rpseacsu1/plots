@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Marcelo Teixeira Ruggeri">
+<meta name="last-modified" content="2013-09-05">
+<style>
+h1 {
+  color: #a275b3;
+  padding: 0 15%;
+}
+h3, p {
+  padding: 0 5%;
+}
+canvas{
+  width: 90%;
+  height: 260px;
+  border: 
+}
+</style>
+
+<title>plotJs</title>
+</head>
+<body>
+<h1>plotJs</h1>
+<h3>Example 01</h3>
+<p>Let's plot below the math function sin(x) from - 4 to + 6</p>
+<canvas id="canvasId">
+<p>I am sorry, however your browser doesn't support canvas. Please, try another one, like : Firefox, Chrome or Opera</p>
+</canvas>
+</body>
+<script src="plotsJs.min.js">
+<script>
+
+var data = []
+for(var k=0; k<10; k++) // randomly filled data array
+  data.push(Math.random())
+
+plot(data,'canvasId') //actual plot
+
+</script>
+</html>
