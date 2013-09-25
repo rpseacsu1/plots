@@ -3,7 +3,7 @@ plotsJs
 
 This is a javascript library for plotting math functions or data arrays very similar to the " plot " command found in Matlab or Scilab.
 
-The main concept is very simple : just show the data on screen.
+The main concept is very simple : just show the data on screen within a line graph.
 
 You may pass it a data array of real numbers and this function shall plot the values on the screen through the HTML 5 Canvas.
 
