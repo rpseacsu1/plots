@@ -7,6 +7,8 @@ The main concept is very simple : just show the data on screen within a line gra
 
 You may pass it a data array of real numbers and this function shall plot the values on the screen through the HTML 5 Canvas.
 
+More information and examples : eelab.pixub.com
+
 Pros :
 
 	- No need of other libraries
